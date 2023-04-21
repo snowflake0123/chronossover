@@ -2,6 +2,41 @@
   "name": "chronossover",
   "version": "0.0.1",
   "private": true,
+  "description": "An Ionic project",
+  "scripts": {
+    "build": "react-scripts build",
+    "check-code-format": "yarn prettier --check \"**/*.{js,jsx,ts,tsx,json,yml,yaml,html,md}\"",
+    "cleanup": "rimraf build",
+    "commit": "npx git-cz",
+    "eslint:format": "npx eslint --fix \"**/*.{ts,tsx}\"",
+    "eslint:validate": "npx eslint \"**/*.{ts,tsx}\"",
+    "format": "npx prettier --write \"**/*.{js,jsx,ts,tsx,json,yml,yaml,html,md}\"",
+    "pre-commit": "npx lint-staged",
+    "start": "react-scripts start",
+    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "yarn pre-commit"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "browserslist": [
+    "Chrome >=79",
+    "ChromeAndroid >=79",
+    "Firefox >=70",
+    "Edge >=79",
+    "Safari >=14",
+    "iOS >=14"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "dependencies": {
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.7.3",
@@ -41,28 +76,25 @@
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": [
-    "Chrome >=79",
-    "ChromeAndroid >=79",
-    "Firefox >=70",
-    "Edge >=79",
-    "Safari >=14",
-    "iOS >=14"
-  ],
   "devDependencies": {
-    "@capacitor/cli": "4.7.3"
-  },
-  "description": "An Ionic project"
+    "@capacitor/cli": "4.7.3",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.7",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-angular-all": "^1.7.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.7",
+    "rimraf": "^5.0.0",
+    "semantic-release": "^21.0.1",
+    "simple-git-hooks": "^2.8.1",
+    "sort-package-json": "^2.4.1"
+  }
 }
