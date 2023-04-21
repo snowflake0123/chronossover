@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Chronossover",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
