@@ -8,11 +8,12 @@
     "check-code-format": "yarn prettier --check \"**/*.{js,jsx,ts,tsx,json,yml,yaml,html,md}\"",
     "cleanup": "rimraf build",
     "commit": "npx git-cz",
+    "dev": "react-scripts start",
     "eslint:format": "npx eslint --fix \"**/*.{ts,tsx}\"",
     "eslint:validate": "npx eslint \"**/*.{ts,tsx}\"",
     "format": "npx prettier --write \"**/*.{js,jsx,ts,tsx,json,yml,yaml,html,md}\"",
     "pre-commit": "npx lint-staged",
-    "start": "react-scripts start",
+    "start": "npx serve build",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'"
   },
   "simple-git-hooks": {
@@ -94,6 +95,7 @@
     "prettier": "^2.8.7",
     "rimraf": "^5.0.0",
     "semantic-release": "^21.0.1",
+    "serve": "^14.2.0",
     "simple-git-hooks": "^2.8.1",
     "sort-package-json": "^2.4.1"
   }
