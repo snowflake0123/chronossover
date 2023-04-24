@@ -12,7 +12,8 @@ import {
   IonDatetimeCustomEvent,
   DatetimeChangeEventDetail,
 } from "@ionic/core";
-import React, { useState } from "react";
+import { AppContext } from "../App";
+import { useState, useContext } from "react";
 import {
   ChatCompletionRequestMessageRoleEnum,
   Configuration,
@@ -20,23 +21,13 @@ import {
 } from "openai";
 
 const ChatGptTest = () => {
-  const [apiKey, setApiKey] = useState("");
-  const [selectedYear, setSelectedYear] = useState(
-    new Date().getFullYear().toString()
-  );
+  const { openaiApiKey, targetYear } = useContext(AppContext);
   const [response, setResponse] = useState("");
 
   const handleApiKeyChange = (
     event: IonInputCustomEvent<InputChangeEventDetail>
   ) => {
-    event.target.value && setApiKey(event.target.value.toString());
-  };
-
-  const handleClipboardEvent = (
-    event: React.ClipboardEvent<HTMLIonInputElement>
-  ) => {
-    event.clipboardData.getData("text") &&
-      setApiKey(event.clipboardData.getData("text"));
+    event.target.value && openaiApiKey.setState(event.target.value.toString());
   };
 
   const handleYearChange = (
@@ -44,14 +35,13 @@ const ChatGptTest = () => {
   ) => {
     const selectedDate =
       event.target.value && new Date(event.target.value.toString());
-    selectedDate &&
-      setSelectedYear(selectedDate?.getFullYear().toString() || "");
+    selectedDate && targetYear.setState(selectedDate?.getFullYear() || -1);
   };
 
   const handleButtonClick = async () => {
-    console.log(`APIキー: ${apiKey}`);
-    console.log(`選択された年: ${selectedYear}`);
-    const configuration = new Configuration({ apiKey });
+    console.log(`APIキー: ${openaiApiKey.state}`);
+    console.log(`選択された年: ${targetYear.state}`);
+    const configuration = new Configuration({ apiKey: openaiApiKey.state });
     const openai = new OpenAIApi(configuration);
     try {
       const response = await openai.createChatCompletion({
@@ -59,7 +49,7 @@ const ChatGptTest = () => {
         messages: [
           {
             role: ChatCompletionRequestMessageRoleEnum.User,
-            content: `${selectedYear}年の「今年の漢字」は何になりそうか予想してください。`,
+            content: `${targetYear.state}年の「今年の漢字」は何になりそうか予想してください。`,
           },
         ],
       });
@@ -74,10 +64,9 @@ const ChatGptTest = () => {
   return (
     <IonContent className="ion-padding">
       <IonInput
-        value={apiKey}
+        value={openaiApiKey.state}
         placeholder="OpenAI API Key を入力してください"
         onIonChange={handleApiKeyChange}
-        onPaste={handleClipboardEvent}
       />
       <IonDatetimeButton datetime="datetime"></IonDatetimeButton>
 

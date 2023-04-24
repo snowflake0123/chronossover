@@ -1,3 +1,4 @@
+import { createContext, useState } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -26,25 +27,48 @@ import "./theme/variables.css";
 
 setupIonicReact();
 
+type Context = {
+  openaiApiKey: {
+    state: string;
+    setState: (value: string) => void;
+  };
+  targetYear: {
+    state: number;
+    setState: (value: number) => void;
+  };
+};
+
+export const AppContext = createContext<Context>({} as Context);
+
 const App: React.FC = () => {
+  const [openaiApiKey, setOpenaiApiKey] = useState("");
+  const [targetYear, setTargetYear] = useState(new Date().getFullYear());
+
   return (
     <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route path="/" exact={true}>
-            <Redirect to="/home" />
-          </Route>
-          <Route path="/home" exact={true}>
-            <Home />
-          </Route>
-          <Route path="/message/:id">
-            <ViewMessage />
-          </Route>
-          <Route path="/chatgpt-test">
-            <ChatGptTest />
-          </Route>
-        </IonRouterOutlet>
-      </IonReactRouter>
+      <AppContext.Provider
+        value={{
+          openaiApiKey: { state: openaiApiKey, setState: setOpenaiApiKey },
+          targetYear: { state: targetYear, setState: setTargetYear },
+        }}
+      >
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route path="/" exact={true}>
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/home" exact={true}>
+              <Home />
+            </Route>
+            <Route path="/message/:id">
+              <ViewMessage />
+            </Route>
+            <Route path="/chatgpt-test">
+              <ChatGptTest />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </AppContext.Provider>
     </IonApp>
   );
 };
