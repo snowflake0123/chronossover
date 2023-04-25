@@ -20,7 +20,7 @@ import {
   OpenAIApi,
 } from "openai";
 
-const ChatGptTest = () => {
+const Start = () => {
   const { openaiApiKey, targetYear } = useContext(AppContext);
   const [response, setResponse] = useState("");
 
@@ -85,4 +85,4 @@ const ChatGptTest = () => {
   );
 };
 
-export default ChatGptTest;
+export default Start;
