@@ -1,6 +1,6 @@
 import MessageListItem from "../components/MessageListItem";
-import { useState } from "react";
-import { Message, getMessages } from "../data/messages";
+import { AppContext } from "../App";
+import { useContext } from "react";
 import {
   IonContent,
   IonHeader,
@@ -10,17 +10,11 @@ import {
   IonRefresherContent,
   IonTitle,
   IonToolbar,
-  useIonViewWillEnter,
 } from "@ionic/react";
 import "./Home.css";
 
 const Home: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
-
-  useIonViewWillEnter(() => {
-    const msgs = getMessages();
-    setMessages(msgs);
-  });
+  const { messages } = useContext(AppContext);
 
   const refresh = (e: CustomEvent) => {
     setTimeout(() => {
@@ -46,11 +40,12 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <IonList>
+        {/* <IonList>
           {messages.map((m) => (
             <MessageListItem key={m.id} message={m} />
           ))}
-        </IonList>
+        </IonList> */}
+        {messages.state[0].body && <p>{messages.state[0].body}</p>}
       </IonContent>
     </IonPage>
   );

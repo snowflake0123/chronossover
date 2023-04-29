@@ -24,6 +24,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import { Message } from "./data/messages";
 
 setupIonicReact();
 
@@ -36,13 +37,20 @@ type Context = {
     state: number;
     setState: (value: number) => void;
   };
+  messages: {
+    state: Message[];
+    setState: (messages: Message[]) => void;
+  };
 };
 
 export const AppContext = createContext<Context>({} as Context);
 
 const App: React.FC = () => {
-  const [openaiApiKey, setOpenaiApiKey] = useState("");
-  const [targetYear, setTargetYear] = useState(new Date().getFullYear());
+  const [openaiApiKey, setOpenaiApiKey] = useState<string>("");
+  const [targetYear, setTargetYear] = useState<number>(
+    new Date().getFullYear()
+  );
+  const [messages, setMessages] = useState<Message[]>([]);
 
   return (
     <IonApp>
@@ -50,6 +58,7 @@ const App: React.FC = () => {
         value={{
           openaiApiKey: { state: openaiApiKey, setState: setOpenaiApiKey },
           targetYear: { state: targetYear, setState: setTargetYear },
+          messages: { state: messages, setState: setMessages },
         }}
       >
         <IonReactRouter>
@@ -57,7 +66,7 @@ const App: React.FC = () => {
             <Route path="/" exact={true}>
               <Redirect to="/start" />
             </Route>
-            <Route path="/start">
+            <Route path="/start" exact={true}>
               <Start />
             </Route>
             <Route path="/home" exact={true}>
