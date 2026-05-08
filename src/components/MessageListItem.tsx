@@ -1,6 +1,8 @@
-import { IonItem, IonLabel, IonNote } from "@ionic/react";
+import { IonItem, IonLabel, IonNote, IonIcon } from "@ionic/react";
+import { personCircle } from "ionicons/icons";
 import { Message } from "../data/messages";
 import "./MessageListItem.css";
+import { formatDate } from "../utils/formatDate";
 
 interface MessageListItemProps {
   message: Message;
@@ -8,16 +10,22 @@ interface MessageListItemProps {
 
 const MessageListItem: React.FC<MessageListItemProps> = ({ message }) => {
   return (
-    <IonItem routerLink={`/message/${message.id}`} detail={false}>
-      <div slot="start" className="dot dot-unread"></div>
-      <IonLabel className="ion-text-wrap">
-        <h2>
-          {message.user.name} @{message.user.id}
+    <IonItem className="message-list-item" routerLink={`/message/${message.id}`} lines="full">
+      <IonIcon
+        slot="start"
+        aria-hidden="true"
+        icon={personCircle}
+        color="primary"
+      />
+      <IonLabel>
+        <h2 className="ion-text-nowrap">
+          {message.user.name}
+          <span className="userId">@{message.user.id}</span>
           <span className="date">
-            <IonNote>{message.date}</IonNote>
+            <IonNote>{formatDate(new Date(message.date))}</IonNote>
           </span>
         </h2>
-        <p>{message.body}</p>
+        <p className="ion-text-wrap">{message.body}</p>
       </IonLabel>
     </IonItem>
   );

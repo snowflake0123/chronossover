@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 export interface Message {
   /** UUID */
   id: string;
@@ -105,4 +107,36 @@ const messages: Message[] = [
 
 export const getMessages = () => messages;
 
-export const getMessage = (id: string) => messages.find((m) => m.id === id);
+// export const getMessage = (id: string) => messages.find((m) => m.id === id);
+export const findMessageById = (
+  messages: Message[],
+  targetId: string
+): Message | undefined => messages.find((m) => m.id === targetId);
+
+export const parseRawResponseToMessage = (rawResponse: string): Message[] => {
+  const rawMessages = rawResponse.split("\\eot");
+  const messages = rawMessages
+    // 空文字列を除去
+    .filter(v => v)
+    // 改行コードを除去
+    .map((rawMessage) => rawMessage.replace(/\r?\n/g, ""))
+    .map((rawMessage): Message => {
+      const properties = rawMessage.split(",");
+      const id = uuidv4();
+      // @ よりも前に何か文字列が入っていると困るので @ より後ろを切り出している
+      const userId = properties[0].trim().slice(properties[0].trim().indexOf("@") + 1);
+      const userName = properties[1].trim();
+      const date = properties[2].trim();
+      const body = properties[3].trim();
+      return {
+        id,
+        user: {
+          id: userId,
+          name: userName,
+        },
+        date,
+        body,
+      };
+    });
+  return messages;
+}

@@ -14,7 +14,7 @@ import {
 import "./Home.css";
 
 const Home: React.FC = () => {
-  const { messages } = useContext(AppContext);
+  const { messages, targetYear } = useContext(AppContext);
 
   const refresh = (e: CustomEvent) => {
     setTimeout(() => {
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
     <IonPage id="home-page">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Inbox</IonTitle>
+          <IonTitle>Timeline in {targetYear.state}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -36,16 +36,15 @@ const Home: React.FC = () => {
 
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Inbox</IonTitle>
+            <IonTitle size="large">Timeline in {targetYear.state}</IonTitle>
           </IonToolbar>
         </IonHeader>
 
-        {/* <IonList>
-          {messages.map((m) => (
+        <IonList>
+          {messages.state.map((m) => (
             <MessageListItem key={m.id} message={m} />
           ))}
-        </IonList> */}
-        {messages.state[0].body && <p>{messages.state[0].body}</p>}
+        </IonList>
       </IonContent>
     </IonPage>
   );

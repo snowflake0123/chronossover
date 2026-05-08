@@ -1,6 +1,8 @@
-ion-item {
+.message-list-item {
   --padding-start: 0;
+  --padding-end: 16px;
   --inner-padding-end: 0;
+  --inner-padding-bottom: 16px;
 }
 
 ion-label {
@@ -8,36 +10,49 @@ ion-label {
   margin-bottom: 12px;
 }
 
-ion-item h2 {
+.message-list-item h2 {
   font-weight: 600;
   margin: 0;
+  display: flex;
 }
 
-ion-item p {
+.message-list-item p {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   width: 95%;
+  color: #e7e9ea !important;
+  font-size: 15px !important;
 }
 
-ion-item .date {
-  float: right;
-  align-items: center;
-  display: flex;
+.message-list-item .userId {
+  margin-left: 6px;
+  color: #71767b;
 }
 
-ion-item ion-icon {
+.message-list-item .date {
+  margin-left: auto;
+}
+
+.message-list-item ion-icon {
   color: #c9c9ca;
 }
 
-ion-item ion-note {
+.message-list-item ion-note {
   font-size: 15px;
   margin-right: 8px;
   font-weight: normal;
 }
 
-ion-item ion-note.md {
+.message-list-item ion-note.md {
   margin-right: 14px;
+}
+
+ion-icon {
+  height: 48px;
+  width: 48px;
+  align-self: start;
+  margin: 16px 10px 16px 16px;
 }
 
 .dot {

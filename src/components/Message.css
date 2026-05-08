@@ -1,0 +1,51 @@
+.message-user {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --background: transparent;
+}
+
+.message-user h2 {
+  font-weight: 600;
+}
+
+.message-user .userId {
+  font-weight: 400;
+  display: block;
+  color: #71767b;
+  font-size: 15px;
+}
+
+.message-user .date {
+  float: left;
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+}
+
+.message-user ion-icon {
+  font-size: 42px;
+  margin-right: 8px;
+}
+
+.message-user ion-note {
+  font-size: 15px;
+  margin-right: 12px;
+  font-weight: normal;
+}
+
+.content {
+  padding-bottom: 16px;
+  margin: 0 16px 0;
+  border-bottom: 1px solid #2f3336;
+}
+
+.body {
+  margin: 0 0 16px 0;
+  line-height: 22px;
+  font-size: 17px;
+  color: #e7e9ea !important;
+}
+
+ion-input {
+  font-size: 20px;
+}
