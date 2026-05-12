@@ -1,0 +1,33 @@
+.composer {
+  position: sticky;
+  bottom: 0;
+  background-color: rgba(245, 245, 247, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  padding: var(--sp-sm) var(--sp-xl);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-sm);
+  border-top: var(--border-divider-soft);
+}
+
+.textarea {
+  flex: 1;
+  resize: none;
+  min-height: 44px;
+  max-height: 200px;
+  padding: 11px 18px;
+  border: var(--border-hairline);
+  border-radius: var(--r-lg);
+  background-color: var(--color-canvas);
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-ink);
+  outline: 0;
+}
+
+.textarea:focus {
+  border-color: var(--color-primary-focus);
+}

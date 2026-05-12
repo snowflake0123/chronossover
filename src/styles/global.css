@@ -1,0 +1,17 @@
+body {
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-ink);
+  background-color: var(--color-canvas-parchment);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ink);
+}

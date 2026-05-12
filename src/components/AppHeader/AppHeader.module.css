@@ -1,0 +1,63 @@
+.globalNav {
+  background-color: var(--color-surface-black);
+  color: var(--color-on-dark);
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--sp-lg);
+  font-family: var(--font-text);
+  font-size: var(--fs-nav-link);
+  line-height: var(--lh-nav-link);
+  letter-spacing: var(--ls-nav-link);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.subNav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(245, 245, 247, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  color: var(--color-ink);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sp-xl);
+  border-bottom: var(--border-divider-soft);
+}
+
+.subNavLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-tagline);
+  font-weight: 600;
+  line-height: var(--lh-tagline);
+  letter-spacing: var(--ls-tagline);
+  color: var(--color-ink);
+}
+
+.subNavRight {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.backLink {
+  font-family: var(--font-text);
+  font-size: var(--fs-button-utility);
+  letter-spacing: var(--ls-button-utility);
+  color: var(--color-primary);
+}
