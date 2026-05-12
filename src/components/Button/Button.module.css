@@ -1,0 +1,63 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-text);
+  transition: transform 120ms ease;
+  white-space: nowrap;
+}
+
+.base:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.base:focus-visible {
+  outline: 2px solid var(--color-primary-focus);
+  outline-offset: 2px;
+}
+
+.base:disabled {
+  opacity: 0.48;
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  border-radius: var(--r-pill);
+  padding: 11px 22px;
+}
+
+.secondaryPill {
+  background-color: transparent;
+  color: var(--color-primary);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--r-pill);
+  padding: 10px 21px;
+}
+
+.darkUtility {
+  background-color: var(--color-ink);
+  color: var(--color-on-dark);
+  font-size: var(--fs-button-utility);
+  line-height: var(--lh-button-utility);
+  letter-spacing: var(--ls-button-utility);
+  border-radius: var(--r-sm);
+  padding: 8px 15px;
+}
+
+.storeHero {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--fs-button-large);
+  font-weight: 300;
+  line-height: var(--lh-button-large);
+  letter-spacing: var(--ls-button-large);
+  border-radius: var(--r-pill);
+  padding: 14px 28px;
+}

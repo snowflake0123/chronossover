@@ -1,0 +1,59 @@
+.card {
+  background-color: var(--color-canvas);
+  padding: var(--sp-lg) var(--sp-xl);
+  border-bottom: var(--border-hairline);
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-sm);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-full);
+  background-color: var(--color-canvas-parchment);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink-muted-80);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-body);
+}
+
+.name {
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: var(--ls-body);
+}
+
+.userId {
+  color: var(--color-ink-muted-48);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-caption);
+  margin-left: var(--sp-xs);
+  font-weight: 400;
+}
+
+.body {
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.date {
+  margin-top: var(--sp-sm);
+  color: var(--color-ink-muted-48);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-caption);
+}

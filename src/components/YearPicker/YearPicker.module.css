@@ -1,0 +1,63 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  background-color: var(--color-canvas);
+  border-radius: var(--r-pill);
+  padding: 8px 18px;
+  border: var(--border-hairline);
+}
+
+.wrapperLg {
+  gap: var(--sp-md);
+  padding: 18px 36px;
+  border-radius: var(--r-pill);
+}
+
+.label {
+  font-family: var(--font-text);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-caption);
+  color: var(--color-ink-muted-80);
+}
+
+.labelLg {
+  font-family: var(--font-display);
+  font-size: var(--fs-tagline);
+  letter-spacing: var(--ls-tagline);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-ink-muted-48);
+}
+
+.input {
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-ink);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 5.5ch;
+  text-align: right;
+}
+
+.inputLg {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-md);
+  line-height: var(--lh-display-md);
+  letter-spacing: var(--ls-display-md);
+  font-weight: 600;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.inputLg::-webkit-inner-spin-button,
+.inputLg::-webkit-outer-spin-button {
+  margin-left: var(--sp-md);
+  transform: scale(1.4);
+  transform-origin: center;
+}

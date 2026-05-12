@@ -1,0 +1,26 @@
+.bar {
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: transparent;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.track {
+  width: 40%;
+  height: 100%;
+  background-color: var(--color-primary);
+  animation: slide 1.4s ease-in-out infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
